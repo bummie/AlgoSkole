@@ -10,24 +10,28 @@
 void Bubblesort(int* iaArray, int iLength);
 void swap(int* a, int* b);
 
-int swapped = TRUE;
 
 void Bubblesort(int* iaArray, int iLength)
 {	
+	int swapped = TRUE;
+
 	while(swapped)
 	{
 		swapped = FALSE;
 		for(int i = 1; i < iLength; i++)
 		{
 			if(iaArray[i-1] > iaArray[i])
+			{
 				swap(&iaArray[i-1], &iaArray[i]); 	
+				swapped = TRUE;
+			}
 		}				
 	}
 }
 
 void swap(int* a, int* b)
 {
-	swapped = TRUE;
+	
 	int swap = *a;
 	*a = *b;
 	*b = swap;
