@@ -9,6 +9,7 @@ int main(int iArgc, char* apszArgv[])
 	if(iArgc < 2)
 	{
 		printf("Correct usage: ./Testing <Sorttype>\n");
+		return 1;
 	}
 	
 	char* sorttype = apszArgv[1];
@@ -40,7 +41,6 @@ int main(int iArgc, char* apszArgv[])
 		printf("Mergesorting\n");
 		MergeSort(iaNumbers, iArraySize);
 	}
-	
 	
 	// Print result
 	for(int i = 0; i < iArraySize; i++)

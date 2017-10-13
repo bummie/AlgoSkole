@@ -57,7 +57,7 @@ void merge(int* iArray, int low, int middle, int high, int* iBuffer)
             //done with right half, just copy over the left
             iArray[k] = iBuffer[i++];
         }
-        else if (iBuffer[j] > iBuffer[i])
+        else if (iBuffer[j] < iBuffer[i])
         {
             iArray[k] = iBuffer[j++];
         } 
