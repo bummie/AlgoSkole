@@ -44,7 +44,7 @@ void merge(int* iArray, int low, int middle, int high, int* iBuffer)
 	int j = middle + 1;
 	int k = low;
 	
-	
+	// TODO: Fikse sorteringsretning
    for (int k = low; k <= high; k++)
    {
         if (i > middle) 
@@ -52,7 +52,8 @@ void merge(int* iArray, int low, int middle, int high, int* iBuffer)
             //done with left half, just copy over the right
             iArray[k] = iBuffer[j++];
         } 
-        else if (j > high) {
+        else if (j > high)
+        {
             //done with right half, just copy over the left
             iArray[k] = iBuffer[i++];
         }
