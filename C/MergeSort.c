@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void MergeSort(int* iArray, int length);
 void mergesort(int* iArray, int low, int high, int* iBuffer);
@@ -12,14 +13,16 @@ void MergeSort(int* iArray, int length)
 		return;
 	}
 	
-	int* iBuffer = iArray;
+	// Kopiere data fra array til buffer
+	int iBuffer[length];
+	memcpy(iBuffer, iArray, length);
 	
 	mergesort(iArray, 0, length - 1, iBuffer);
 }
 
 void mergesort(int* iArray, int low, int high, int* iBuffer)
 {
-	int middle = high / 2;
+	int middle = low + (high - low) / 2;
 	if(low < high)
 	{
 		mergesort(iArray, low, middle, iBuffer);
@@ -41,23 +44,25 @@ void merge(int* iArray, int low, int middle, int high, int* iBuffer)
 	int j = middle + 1;
 	int k = low;
 	
-	while(i <= middle && j <= high)
-	{
-		if(iBuffer[i] < iBuffer[j])
-		{
-			iArray[k] = iBuffer[i];
-			i++;
-		}
-		else
-		{
-			iArray[k] = iBuffer[j];
-			j++;
-		}
-	}
-	while(i <= middle)
-	{
-		iArray[k] = iBuffer[i];
-		k++;
-		i++;
-	}	
+	
+   for (int k = low; k <= high; k++)
+   {
+        if (i > middle) 
+        {
+            //done with left half, just copy over the right
+            iArray[k] = iBuffer[j++];
+        } 
+        else if (j > high) {
+            //done with right half, just copy over the left
+            iArray[k] = iBuffer[i++];
+        }
+        else if (iBuffer[j] > iBuffer[i])
+        {
+            iArray[k] = iBuffer[j++];
+        } 
+        else 
+        {
+            iArray[k] = iBuffer[i++];
+        }
+    }
 }
