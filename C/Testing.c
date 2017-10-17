@@ -2,6 +2,7 @@
 #include "Bubblesort.h"
 #include "SelectionSort.h"
 #include "MergeSort.h"
+#include "Timer.h"
 
 int main(int iArgc, char* apszArgv[])
 {
@@ -23,23 +24,33 @@ int main(int iArgc, char* apszArgv[])
 		printf("%d ", iaNumbers[i]);
 	}
 	printf("\n");
+	unsigned long timeStart, timeEnd;
 	
 	if(strcmp(sorttype, "Selection") == 0)
 	{
 		printf("Selectionsorting\n");
+		timeStart = GetTime();
 		SelectionSort(iaNumbers, iArraySize);
+		timeEnd = GetTime();
+		printTime(timeStart, timeEnd);
 	}
 	
 	else if(strcmp(sorttype, "Bubble") == 0)
 	{	
 		printf("Bubblesorting\n");
+		timeStart = GetTime();
 		Bubblesort(iaNumbers, iArraySize);
+		timeEnd = GetTime();
+		printTime(timeStart, timeEnd);
 	}
 	
 	else if(strcmp(sorttype, "Merge") == 0)
 	{
 		printf("Mergesorting\n");
+		timeStart = GetTime();
 		MergeSort(iaNumbers, iArraySize);
+		timeEnd = GetTime();
+		printTime(timeStart, timeEnd);
 	}
 	
 	// Print result
