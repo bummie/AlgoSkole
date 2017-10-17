@@ -30,7 +30,6 @@ int main(int iArgc, char* apszArgv[])
 		printf("Selectionsorting\n");
 		SelectionSort(iaNumbers, iArraySize);
 	}
-	
 	else if(strcmp(sorttype, "Bubble") == 0)
 	{	
 		printf("Bubblesorting\n");
