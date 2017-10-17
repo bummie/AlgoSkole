@@ -3,6 +3,7 @@
 #include "SelectionSort.h"
 #include "MergeSort.h"
 #include "Timer.h"
+#include "InsertionSort.h"
 
 int main(int iArgc, char* apszArgv[])
 {
@@ -51,6 +52,11 @@ int main(int iArgc, char* apszArgv[])
 		MergeSort(iaNumbers, iArraySize);
 		timeEnd = GetTime();
 		printTime(timeStart, timeEnd);
+	}
+	else if(strcmp(sorttype, "Insertion") == 0)
+	{
+		printf("InsertionSort\n");
+		InsertionSort(iaNumbers, iArraySize);
 	}
 	
 	// Print result
