@@ -2,6 +2,7 @@
 #include "Bubblesort.h"
 #include "SelectionSort.h"
 #include "MergeSort.h"
+#include "InsertionSort.h"
 
 int main(int iArgc, char* apszArgv[])
 {
@@ -34,12 +35,16 @@ int main(int iArgc, char* apszArgv[])
 	{	
 		printf("Bubblesorting\n");
 		Bubblesort(iaNumbers, iArraySize);
-	}
-	
+	}	
 	else if(strcmp(sorttype, "Merge") == 0)
 	{
 		printf("Mergesorting\n");
 		MergeSort(iaNumbers, iArraySize);
+	}
+	else if(strcmp(sorttype, "Insertion") == 0)
+	{
+		printf("InsertionSort\n");
+		InsertionSort(iaNumbers, iArraySize);
 	}
 	
 	// Print result
