@@ -16,8 +16,13 @@ int main(int iArgc, char* apszArgv[])
 	
 	char* sorttype = apszArgv[1];
 	
-	int iArraySize = 10;
-	int iaNumbers[] = {10, 3, 6, 4, 2, 5, 4, 3, 11, 1};
+	int iArraySize = 50000;
+	int iaNumbers[iArraySize];// = {10, 3, 6, 4, 2, 5, 4, 3, 11, 1};
+	
+	for(int i = 0; i < iArraySize; i++)
+	{
+		iaNumbers[i] = iArraySize - i;
+	}
 	
 	// Print pre-result
 	for(int i = 0; i < iArraySize; i++)
@@ -55,13 +60,16 @@ int main(int iArgc, char* apszArgv[])
 	else if(strcmp(sorttype, "Insertion") == 0)
 	{
 		printf("InsertionSort\n");
+		timeStart = GetTime();
 		InsertionSort(iaNumbers, iArraySize);
+		timeEnd = GetTime();
+		printTime(timeStart, timeEnd);
 	}
 	
 	// Print result
 	for(int i = 0; i < iArraySize; i++)
 	{
-		printf("%d ", iaNumbers[i]);
+	//	printf("%d ", iaNumbers[i]);
 	}
 	printf("\n");
 	
